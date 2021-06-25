@@ -1,6 +1,5 @@
 import React from 'react';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+import NavBar from './NavBar';
 
 let testData = {
   userID: 1234,
@@ -11,8 +10,7 @@ let testData = {
 
 const App = (props) => (
     <div>
-      <LoginButton />
-      <LogoutButton />
+      <NavBar />
     </div>
   // <div>
   //   <div>Hello {testData.name}!</div>

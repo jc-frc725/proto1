@@ -9,11 +9,9 @@ const LogoutButton = () => {
      // provide a URL to logout to by specifiying a 'returnTo' property as a config object
      // this URL must be listed in the "Allowed Logout URLs" in the Auth0 account's Dashboard under an Application's settings
      // i.e. for production, ensure that it returns to the *production* logout URL
-    <div>
-      <button onClick={() => logout({ returnTo: window.location.origin })}>
-        LOG OUT
-      </button>
-    </div>
+    <button className='btn btn-danger' onClick={() => logout({ returnTo: window.location.origin })}>
+      LOG OUT
+    </button>
   )
 };
 
