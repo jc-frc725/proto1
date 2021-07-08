@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
+import Loading from './Loading';
+import { useAuth0 } from '@auth0/auth0-react';
 
 let testData = {
   userID: 1234,
@@ -8,10 +10,19 @@ let testData = {
   blurb: "color number one"
 };
 
-const App = (props) => (
+const App = (props) => {
+  // expose the isLoading boolean, informing React app about authentication status when loading auth0
+  const { isLoading } = useAuth0();
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  return (
     <div>
       <NavBar />
     </div>
+  );
+    
   // <div>
   //   <div>Hello {testData.name}!</div>
   //   <div>Here is your current info:</div>
@@ -19,6 +30,6 @@ const App = (props) => (
   //   <li>Quirk: {testData.blurb}</li>
   // </div>
   
-);
+};
 
 export default App;

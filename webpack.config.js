@@ -25,7 +25,9 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      // Thanks to Asset Modules, there's no longer a need to use file-loader
+      // to emit files/image resources into the designated output directory
     ]
   },
   mode: 'development',
