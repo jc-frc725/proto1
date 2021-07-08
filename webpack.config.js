@@ -5,7 +5,9 @@ module.exports = {
   entry: path.resolve(__dirname, 'client', 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    // customizing output filename and directory for loading assets
+    assetModuleFilename: 'assets/[name][ext]' // "output in assets dir, with original name and extension"
   },
   plugins: [
     new Dotenv({
@@ -25,6 +27,15 @@ module.exports = {
             }
           }
         ]
+      },
+      // Thanks to Asset Modules, there's no longer a need to use file-loader
+      // to emit files/image resources into a designated output directory
+      {
+        test: /\.(svg)$/i,
+        type: 'asset/resource',
+        generator: { // same as assetModuleFilename for output
+          filename: 'assets/[name][ext]'
+        }
       }
     ]
   },
