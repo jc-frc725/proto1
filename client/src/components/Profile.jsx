@@ -7,7 +7,7 @@ const Profile = () => {
   // this component contains sensitive user info, thus should only be rendered once authenticated
   const { user } = useAuth0();
   const { name, email } = user;
-  console.log(user.sub);
+  const userID = user.sub.substring(user.sub.indexOf('|') + 1);
   return (
     <div>
       <div className="col-mid text-center text-md-left">
@@ -16,6 +16,7 @@ const Profile = () => {
         <p className="lead text-muted">{email}</p>
       </div>
       <div className="row">
+        <div>User ID: {userID}</div>
         <pre className="col-12 text-light bg-dark p-4">
           {JSON.stringify(user, null, 2)}
         </pre>
