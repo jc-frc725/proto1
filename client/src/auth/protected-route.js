@@ -7,6 +7,9 @@ import Loading from '../components/Loading';
 // renders the withAuthRequired HOC, but through Router's logic
 // component parameter allows creation of other Routes
 const ProtectedRoute = ({ component, ...args }) => {
+  // wrap component to be protected in withAuthenticationRequired
+  // unauthenticated users who visit this component will be redirected to login page
+  // after login, will redirect to app, which takes them back to intended page
   <Route 
     component={withAuthenticationRequired(component, {
       onRedirecting: () => <Loading />,
