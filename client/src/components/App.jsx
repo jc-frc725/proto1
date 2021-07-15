@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from './NavBar';
 import Loading from './Loading';
+import Profile from './Profile';
+import { Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
 let testData = {
@@ -20,6 +22,11 @@ const App = (props) => {
   return (
     <div>
       <NavBar />
+      <div className="container flex-grow-1">
+        <Switch>
+          <Route path="/" exact component={Profile} />
+        </Switch>
+      </div>
     </div>
   );
     
