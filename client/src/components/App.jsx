@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from './NavBar';
 import Loading from './Loading';
 import Profile from './Profile';
@@ -6,6 +6,7 @@ import Home from './Home';
 import { Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import ProtectedRoute from '../auth/protected-route';
+import axios from 'axios';
 
 let testData = {
   userID: 1234,
@@ -17,6 +18,13 @@ let testData = {
 const App = (props) => {
   // expose the isLoading boolean, informing React app about authentication status when loading auth0
   const { isLoading } = useAuth0();
+
+  useEffect(() => {
+    axios.get('/profile')
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
+  }, []);
+
   if (isLoading) {
     return <Loading />;
   }

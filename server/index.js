@@ -5,7 +5,7 @@ const PORT = 3000 || process.env.PORT;
 app.use(express.static('public'));
 
 app.get('/profile', (request, response) => {
-  response.send('this should be the profiles route')
+  response.send('this should be the profiles endpoint')
 });
 
 app.listen(PORT, () => {
