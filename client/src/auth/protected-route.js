@@ -10,12 +10,14 @@ const ProtectedRoute = ({ component, ...args }) => {
   // wrap component to be protected in withAuthenticationRequired
   // unauthenticated users who visit this component will be redirected to login page
   // after login, will redirect to app, which takes them back to intended page
-  <Route 
-    component={withAuthenticationRequired(component, {
-      onRedirecting: () => <Loading />,
-    })}
-    {...args}
-  />
+  return  (
+    <Route 
+      component={withAuthenticationRequired(component, {
+        onRedirecting: () => <Loading />,
+      })}
+      {...args}
+    />
+  );
 };
 
 export default ProtectedRoute;

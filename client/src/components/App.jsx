@@ -2,8 +2,10 @@ import React from 'react';
 import NavBar from './NavBar';
 import Loading from './Loading';
 import Profile from './Profile';
+import Home from './Home';
 import { Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import ProtectedRoute from '../auth/protected-route';
 
 let testData = {
   userID: 1234,
@@ -24,7 +26,8 @@ const App = (props) => {
       <NavBar />
       <div className="container flex-grow-1">
         <Switch>
-          <Route path="/" exact component={Profile} />
+          <ProtectedRoute path="/profile" exact component={Profile} />
+          <ProtectedRoute path="/" component={Home} />
         </Switch>
       </div>
     </div>

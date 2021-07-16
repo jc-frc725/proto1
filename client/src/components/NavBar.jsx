@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import AuthNav from './AuthNav';
 
@@ -9,6 +10,7 @@ const NavBar = () => {
         <div className='container'>
           <div className='navbar-brand'>
             <AuthNav />
+            <Link to="/">Home</Link>
           </div>
         </div>
       </nav>
