@@ -18,6 +18,7 @@ let testData = {
 const App = (props) => {
   // expose the isLoading boolean, informing React app about authentication status when loading auth0
   const { isLoading } = useAuth0();
+  // const userID = user.sub.substring(user.sub.indexOf('|') + 1);
 
   useEffect(() => {
     axios.get('/profile')

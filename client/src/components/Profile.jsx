@@ -5,8 +5,8 @@ const Profile = () => {
   // user object is within useAuth0 hook
   // this component contains sensitive user info, thus should only be rendered once authenticated
   const { user } = useAuth0();
-  const { name, email } = user;
-  const userID = user.sub.substring(user.sub.indexOf('|') + 1);
+  const { name, email, sub } = user;
+  const userID = sub.substring(sub.indexOf('|') + 1);
   return (
     <div>
       <div className="col-mid text-center text-md-left">
